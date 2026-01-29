@@ -39,6 +39,26 @@
       background-image:url('https://grainy-gradients.vercel.app/noise.svg');
       opacity:0.15;
       pointer-events:none;
+      z-index:3;
+    }
+
+    /* artwork background layer */
+    .art-layer{
+      position:fixed;
+      inset:0;
+      background-image:url('your_art_full.jpg');
+      background-size:cover;
+      background-position:center;
+      opacity:0.25;
+      filter: blur(2px) saturate(1.2);
+      z-index:1;
+    }{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:url('https://grainy-gradients.vercel.app/noise.svg');
+      opacity:0.15;
+      pointer-events:none;
       z-index:1;
     }
 
@@ -137,6 +157,7 @@
   <div class="butterfly" style="left:75%; animation-duration:20s;"></div>
 </div>
 
+<div class="art-layer"></div>
 <div class="container">
 
   <header>
