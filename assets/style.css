@@ -29,24 +29,29 @@ body{
     "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
   color: var(--text);
 
-  /* keep artwork visible, overall dark dreamy */
+  /* 关键：把画作放在“最底层的 normal”，不要 soft-light */
   background:
-    radial-gradient(1100px 700px at 18% 10%, var(--glow1), transparent 62%),
-    radial-gradient(1100px 700px at 88% 18%, var(--glow2), transparent 64%),
-    radial-gradient(1400px 900px at 40% 38%, rgba(255,255,255,0.06), transparent 66%),
+    /* very light haze (do NOT kill the painting) */
+    radial-gradient(1100px 700px at 18% 10%, rgba(194,178,255,0.14), transparent 62%),
+    radial-gradient(1100px 700px at 88% 18%, rgba(255,190,220,0.10), transparent 64%),
+
+    /* your painting (visible) */
     url("art.jpg"),
+
+    /* base dark gradient */
     linear-gradient(180deg, rgba(18,16,28,1), rgba(10,10,14,1));
 
-  background-size: auto, auto, auto, cover, auto;
+  background-size: auto, auto, cover, auto;
   background-repeat: no-repeat;
   background-position: center;
 
-  /* key: dark but not muddy; keep your painting clear */
-  background-blend-mode: screen, screen, normal, overlay, normal;
+  /* 关键：前两层用 screen，画作层保持 normal（第三个） */
+  background-blend-mode: screen, screen, normal, normal;
 
   min-height: 100vh;
   overflow-x: hidden;
 }
+
 
 a{ color:inherit; text-decoration:none; border-bottom:1px solid transparent; }
 a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
