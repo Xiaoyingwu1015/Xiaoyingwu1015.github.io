@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Xiaoying Wu | Homepage</title>
   <meta name="description" content="Xiaoying Wu - Undergraduate (Year 2), Department of Mathematics, Fudan University." />
-  <link rel="icon" href="assets/avatar.jpg" />
-  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- IMPORTANT: add a version string to kill cache -->
+  <link rel="stylesheet" href="assets/style.css?v=20260129_fix03" />
 </head>
 
 <body>
@@ -24,12 +25,14 @@
     </nav>
   </header>
 
+  <!-- subtle sparkles -->
   <canvas id="sparkles"></canvas>
 
   <main id="top" class="layout">
+    <!-- Left -->
     <aside class="side">
-      <div class="card profile">
-        <img class="avatar" src="assets/avatar.jpg" alt="Avatar (optional)" onerror="this.style.display='none';" />
+      <section class="card profile">
+        <img class="avatar" src="assets/avatar.jpg" alt="Avatar" onerror="this.style.display='none';" />
 
         <h1 class="name">Xiaoying Wu <span class="cn">吴晓颖</span></h1>
 
@@ -46,6 +49,7 @@
               <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>
             </span>
           </div>
+
           <div class="meta-row">
             <span class="k">Affiliation</span>
             <span class="v">Fudan University</span>
@@ -53,6 +57,7 @@
         </div>
 
         <div class="links">
+          <!-- replace # with real links -->
           <a class="pill" href="#" target="_blank" rel="noreferrer">GitHub</a>
           <a class="pill" href="#" target="_blank" rel="noreferrer">Scholar</a>
           <a class="pill" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -62,18 +67,19 @@
         <div class="profile-note">
           <strong>Now</strong>: building projects & reading recent papers. Open to collaboration.
         </div>
-      </div>
+      </section>
 
-      <div class="card small">
+      <section class="card small">
         <div class="small-title">Focus</div>
         <ul class="bullets">
           <li>3D vision / multiview geometry</li>
           <li>self-supervised & representation learning</li>
           <li>practical ML systems (optional)</li>
         </ul>
-      </div>
+      </section>
     </aside>
 
+    <!-- Right -->
     <section class="content">
       <section id="about" class="block">
         <h2>About</h2>
@@ -83,7 +89,7 @@
           and building clean, reproducible research code.
         </p>
         <p class="muted">
-          (You can replace this paragraph with 2–4 sentences: who you are, what you do, what you seek.)
+          (Replace this with 2–4 sentences: who you are, what you do, what you seek.)
         </p>
       </section>
 
@@ -181,16 +187,17 @@
         <p class="muted">Turn learning into artifacts: notes, code, slides, and demos.</p>
         <ul class="clean">
           <li><span class="tag">ML</span> Transformer from scratch · <a href="#" target="_blank" rel="noreferrer">repo</a></li>
+          <li><span class="tag">Vision</span> Paper walkthrough slides · <a href="#" target="_blank" rel="noreferrer">slides</a></li>
         </ul>
       </section>
 
       <section id="contact" class="block">
         <h2>Contact</h2>
         <p>
-          Email me at:
+          Email:
           <a href="mailto:wxy2210330146@gmail.com">wxy2210330146@gmail.com</a>
-          or
-          <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>.
+          /
+          <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>
         </p>
       </section>
 
@@ -202,6 +209,6 @@
     </section>
   </main>
 
-  <script src="assets/main.js"></script>
-</body Ú>
+  <script src="assets/main.js?v=20260129_fix03"></script>
+</body>
 </html>
