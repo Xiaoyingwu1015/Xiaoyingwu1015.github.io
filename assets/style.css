@@ -45,21 +45,23 @@ body{
   color: var(--text);
 
   background:
-    radial-gradient(900px 520px at 18% 10%, var(--glow1), transparent 60%),
-    radial-gradient(900px 520px at 85% 18%, var(--glow2), transparent 62%),
-    radial-gradient(1200px 800px at 30% 30%, rgba(255,255,255,0.55), transparent 62%),
+    radial-gradient(900px 520px at 18% 12%, var(--glow1), transparent 62%),
+    radial-gradient(900px 520px at 86% 18%, var(--glow2), transparent 64%),
+    radial-gradient(1200px 800px at 40% 35%, rgba(255,255,255,0.70), transparent 65%),
     url("art.jpg"),
-    linear-gradient(180deg, var(--cream), var(--bg));
+    linear-gradient(180deg, #FBFAFF, var(--bg));
 
   background-size: auto, auto, auto, cover, auto;
   background-repeat: no-repeat;
   background-position: center;
-  /* key: make artwork lighter + dreamy */
+
+  /* 关键：让画变“淡纹理”，不抢眼、不压暗 */
   background-blend-mode: screen, screen, normal, soft-light, normal;
 
   min-height: 100vh;
   overflow-x: hidden;
 }
+
 
 
 /* links */
