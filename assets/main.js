@@ -1,19 +1,4 @@
 (function () {
-  const root = document.documentElement;
-
-  // Theme toggle
-  const btnTheme = document.getElementById("btnTheme");
-  const saved = localStorage.getItem("theme");
-  if (saved) root.setAttribute("data-theme", saved);
-
-  function toggleTheme() {
-    const cur = root.getAttribute("data-theme") || "dark";
-    const next = cur === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  }
-  btnTheme?.addEventListener("click", toggleTheme);
-
   // Year
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
@@ -34,7 +19,7 @@
     });
   });
 
-  // Dreamy sparkles (silver glitter)
+  // Dreamy sparkles (silver glitter) — very subtle behind content
   const c = document.getElementById("sparkles");
   if (!c) return;
   const ctx = c.getContext("2d");
@@ -50,14 +35,14 @@
   resize();
   window.addEventListener("resize", resize);
 
-  const N = 40;
+  const N = 34; // fewer = cleaner (matches screenshot vibe)
   const P = Array.from({ length: N }).map(() => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
-    r: 0.6 + Math.random() * 1.8,
-    vx: -0.08 + Math.random() * 0.16,
-    vy: 0.06 + Math.random() * 0.22,
-    a: 0.10 + Math.random() * 0.25,
+    r: 0.6 + Math.random() * 1.6,
+    vx: -0.06 + Math.random() * 0.12,
+    vy: 0.05 + Math.random() * 0.18,
+    a: 0.06 + Math.random() * 0.14,
   }));
 
   function draw() {
@@ -72,13 +57,13 @@
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(221,226,226,${p.a})`; // silver sparkles
+      ctx.fillStyle = `rgba(255,255,255,${p.a})`;
       ctx.fill();
     }
     requestAnimationFrame(draw);
   }
 
-  // put sparkles behind content
+  // behind content
   c.style.position = "fixed";
   c.style.inset = "0";
   c.style.pointerEvents = "none";
