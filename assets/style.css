@@ -377,3 +377,64 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   .side{ position: relative; top: 0; }
   .nav{ display:none; }
 }
+
+/* ===== Switch to DARK TEXT (put at the very end of style.css) ===== */
+:root{
+  --text-dark: rgba(20, 18, 30, 0.92);
+  --muted-dark: rgba(20, 18, 30, 0.62);
+  --border-dark: rgba(20, 18, 30, 0.16);
+}
+
+/* all text -> dark */
+body{
+  color: var(--text-dark);
+}
+
+/* headings / strong */
+h1, h2, .name, .item-title, .pub-title{
+  color: var(--text-dark) !important;
+}
+
+/* secondary text */
+.muted, .headline, .k, .item-sub, .pub-authors, .pub-venue, .clean, .timeline{
+  color: var(--muted-dark) !important;
+}
+
+/* links */
+a, .btn-link{
+  color: rgba(20,18,30,0.86) !important;
+  border-bottom-color: rgba(20,18,30,0.18);
+}
+a:hover, .btn-link:hover{
+  border-bottom-color: rgba(120,100,200,0.55);
+}
+
+/* pills/chips/badges text */
+.pill, .chip, .badge, .tag{
+  color: rgba(20,18,30,0.82) !important;
+}
+
+/* make borders slightly darker to match black text aesthetics */
+.card, .block, .item, .pub{
+  border-color: var(--border-dark) !important;
+}
+
+/* top nav text to dark too */
+.brand{
+  color: rgba(20,18,30,0.92) !important;
+}
+.nav a{
+  color: rgba(20,18,30,0.72) !important;
+}
+.nav a:hover{
+  color: rgba(20,18,30,0.92) !important;
+}
+
+/* profile note text */
+.profile-note{
+  color: rgba(20,18,30,0.72) !important;
+}
+.profile-note strong{
+  color: rgba(20,18,30,0.92) !important;
+}
+
