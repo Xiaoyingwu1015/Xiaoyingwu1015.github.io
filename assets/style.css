@@ -131,7 +131,7 @@ a:hover{ border-bottom-color: rgba(95,91,149,0.55); }
 }
 
 .card, .block{
-  background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.50));
+  background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,255,255,0.58));
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
