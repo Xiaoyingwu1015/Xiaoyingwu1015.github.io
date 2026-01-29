@@ -19,7 +19,7 @@
     });
   });
 
-  // Dreamy sparkles (silver glitter) — very subtle behind content
+  // Subtle sparkles behind content
   const c = document.getElementById("sparkles");
   if (!c) return;
   const ctx = c.getContext("2d");
@@ -35,14 +35,14 @@
   resize();
   window.addEventListener("resize", resize);
 
-  const N = 34; // fewer = cleaner (matches screenshot vibe)
+  const N = 34;
   const P = Array.from({ length: N }).map(() => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
     r: 0.6 + Math.random() * 1.6,
     vx: -0.06 + Math.random() * 0.12,
     vy: 0.05 + Math.random() * 0.18,
-    a: 0.06 + Math.random() * 0.14,
+    a: 0.05 + Math.random() * 0.12,
   }));
 
   function draw() {
@@ -63,7 +63,6 @@
     requestAnimationFrame(draw);
   }
 
-  // behind content
   c.style.position = "fixed";
   c.style.inset = "0";
   c.style.pointerEvents = "none";
