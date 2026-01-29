@@ -1,155 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Dream Fusion Personal System</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --deep:#1b0f2e;
-  --violet:#3c1f6b;
-  --purple:#6a4bbd;
-  --lavender:#b7a7e6;
-  --peach:#f2c9b1;
-  --silver:rgba(255,255,255,0.85);
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:'Poppins',sans-serif;
-  min-height:100vh;
-  background: radial-gradient(circle at top,#6a4bbd,#2b144f,#12081f);
-  color:white;
-  overflow-x:hidden;
-}
-
-/* ===== World Layers ===== */
-.art-world{
-  position:fixed;inset:0;
-  background:url('/assets/art/full.jpg') center/cover no-repeat;
-  opacity:0.18;
-  filter: blur(3px) saturate(1.2);
-  z-index:1;
-}
-.noise-layer{
-  position:fixed;inset:0;
-  background:url('https://grainy-gradients.vercel.app/noise.svg');
-  opacity:0.12;
-  pointer-events:none;
-  z-index:2;
-}
-.symbol-layer{position:fixed;inset:0;pointer-events:none;z-index:3;}
-.ui-layer{position:relative;z-index:5;}
-
-/* ===== Symbols ===== */
-.symbol{position:absolute;opacity:0.6;filter:blur(0.5px);} 
-.butterfly{
-  width:36px;height:36px;
-  background:url('/assets/art/butterfly.jpg') center/contain no-repeat;
-  animation: float 22s linear infinite;
-}
-.flow{
-  width:240px;height:240px;
-  background:url('/assets/art/line.jpg') center/contain no-repeat;
-  opacity:0.25;
-}
-.totem{
-  position:fixed;
-  right:4%;bottom:8%;
-  width:260px;height:360px;
-  background:url('/assets/art/face.jpg') center/cover no-repeat;
-  opacity:0.15;
-  filter: blur(1px);
-  z-index:4;
-}
-
-@keyframes float{
-  from{transform:translateY(110vh) rotate(0deg);} 
-  to{transform:translateY(-120vh) rotate(360deg);} 
-}
-
-/* ===== UI ===== */
-.container{max-width:1200px;margin:0 auto;padding:120px 24px;}
-header{text-align:center;margin-bottom:140px;}
-header h1{font-family:'Playfair Display',serif;font-size:72px;letter-spacing:3px;}
-header p{margin-top:24px;font-size:18px;opacity:0.85;}
-
-.section{margin-bottom:140px;}
-.card{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  border-radius:28px;
-  padding:48px;
-  box-shadow:0 0 60px rgba(255,255,255,0.08);
-}
-.title{font-family:'Playfair Display',serif;font-size:40px;margin-bottom:24px;}
-.text{opacity:0.8;line-height:1.9;font-size:16px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;}
-.item{background:rgba(255,255,255,0.06);border-radius:20px;padding:28px;min-height:140px;}
-footer{text-align:center;opacity:0.6;font-size:14px;margin-top:160px;}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Xiaoying Wu | Homepage</title>
+  <meta name="description" content="Xiaoying Wu - Undergraduate (Year 2), Department of Mathematics, Fudan University." />
+  <link rel="icon" href="assets/avatar.jpg" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
+  <header class="topbar">
+    <a class="brand" href="#top">Xiaoying Wu</a>
 
-<div class="art-world"></div>
-<div class="noise-layer"></div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#featured">Featured</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#notes">Notes</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<div class="symbol-layer">
-  <div class="symbol butterfly" style="left:10%;animation-duration:26s;"></div>
-  <div class="symbol butterfly" style="left:35%;animation-duration:32s;"></div>
-  <div class="symbol butterfly" style="left:70%;animation-duration:28s;"></div>
-  <div class="symbol flow" style="top:20%;left:5%;"></div>
-  <div class="symbol flow" style="bottom:10%;right:8%;"></div>
-</div>
-
-<div class="totem"></div>
-
-<div class="ui-layer">
-<div class="container">
-
-<header>
-  <h1>Your Name</h1>
-  <p>Dream · Research · Creation · Intelligence · Future</p>
-</header>
-
-<section class="section">
-  <div class="card">
-    <div class="title">About</div>
-    <div class="text">Personal identity, philosophy, direction and self narrative will be placed here.<br>（个人信息后期统一填写）</div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="card">
-    <div class="title">Projects</div>
-    <div class="grid">
-      <div class="item">Project Placeholder 01</div>
-      <div class="item">Project Placeholder 02</div>
-      <div class="item">Project Placeholder 03</div>
+    <div class="topbar-actions">
+      <button class="btn" id="btnTheme" aria-label="Toggle theme">Theme</button>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="section">
-  <div class="card">
-    <div class="title">Research & Ideas</div>
-    <div class="text">Research directions, AI systems, philosophy of intelligence, long-term visions.</div>
-  </div>
-</section>
+  <canvas id="sparkles"></canvas>
 
-<section class="section">
-  <div class="card">
-    <div class="title">Vision</div>
-    <div class="text">Long-term goals, future systems, personal worldview, and creation path.</div>
-  </div>
-</section>
+  <main id="top" class="layout">
+    <!-- Left: Profile -->
+    <aside class="side">
+      <div class="card profile">
+        <img class="avatar" src="assets/avatar.jpg" alt="Avatar (optional)" onerror="this.style.display='none';" />
 
-<footer>
-  © 2026 Dream Fusion System · Personal World Engine
-</footer>
+        <h1 class="name">Xiaoying Wu <span class="cn">吴晓颖</span></h1>
 
-</div>
-</div>
+        <p class="headline">
+          Undergraduate (Year 2) · Department of Mathematics, Fudan University<br/>
+          Interests: ML / 3D Vision / Representation Learning
+        </p>
 
+        <div class="meta">
+          <div class="meta-row">
+            <span class="k">Email</span>
+            <span class="v">
+              <a href="mailto:wxy2210330146@gmail.com">wxy2210330146@gmail.com</a><br/>
+              <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>
+            </span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Affiliation</span>
+            <span class="v">Fudan University</span>
+          </div>
+        </div>
+
+        <div class="links">
+          <!-- TODO: 把 # 换成你的真实链接 -->
+          <a class="pill" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill" href="#" target="_blank" rel="noreferrer">Scholar</a>
+          <a class="pill" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="pill" href="assets/CV.pdf" target="_blank" rel="noreferrer">CV</a>
+        </div>
+
+        <div class="profile-note">
+          <strong>Now</strong>: building projects & reading recent papers. Open to collaboration.
+        </div>
+      </div>
+
+      <div class="card small">
+        <div class="small-title">Focus</div>
+        <ul class="bullets">
+          <li>3D vision / multiview geometry</li>
+          <li>self-supervised & representation learning</li>
+          <li>practical ML systems (optional)</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Right: Content -->
+    <section class="content">
+      <!-- About -->
+      <section id="about" class="block">
+        <h2>About</h2>
+        <p>
+          I am an undergraduate student (Year 2) in the Department of Mathematics at Fudan University.
+          I am interested in <span class="em">machine learning</span>, <span class="em">3D vision</span>,
+          and building clean, reproducible research code.
+        </p>
+        <p class="muted">
+          (You can replace this paragraph with 2–4 sentences: who you are, what you do, what you seek.)
+        </p>
+      </section>
+
+      <!-- News -->
+      <section id="news" class="block">
+        <h2>News</h2>
+        <ul class="timeline">
+          <li><span class="date">2026-01</span> Building a dreamy personal system UI + studying ML fundamentals.</li>
+          <li><span class="date">2026-01</span> Reading recent vision papers and preparing presentation slides.</li>
+        </ul>
+      </section>
+
+      <!-- Featured -->
+      <section id="featured" class="block">
+        <div class="row">
+          <h2>Featured</h2>
+          <div class="filters">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="selected">Selected</button>
+          </div>
+        </div>
+
+        <div class="grid" id="featuredGrid">
+          <article class="item" data-tags="selected">
+            <div class="item-head">
+              <div>
+                <div class="item-title">Dream Fusion Personal System</div>
+                <div class="item-sub">A dreamy dashboard / personal system (HTML/CSS/JS), inspired by my own artwork.</div>
+              </div>
+              <div class="badges">
+                <span class="badge">Selected</span>
+                <span class="badge ghost">2026</span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <a class="btn-link" href="#" target="_blank" rel="noreferrer">Code</a>
+              <a class="btn-link" href="#" target="_blank" rel="noreferrer">Demo</a>
+              <a class="btn-link" href="#" target="_blank" rel="noreferrer">Writeup</a>
+            </div>
+          </article>
+
+          <article class="item" data-tags="all">
+            <div class="item-head">
+              <div>
+                <div class="item-title">ML From Scratch Notes</div>
+                <div class="item-sub">kNN / softmax / backprop — clean explanations + implementations.</div>
+              </div>
+              <div class="badges">
+                <span class="badge ghost">Notes</span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <a class="btn-link" href="#notes">Read</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications" class="block">
+        <h2>Publications</h2>
+        <p class="muted">If you don’t have papers yet, list projects / manuscripts / reports here.</p>
+
+        <div class="pub">
+          <div class="pub-left">
+            <div class="thumb">PDF</div>
+          </div>
+          <div class="pub-right">
+            <div class="pub-title">Manuscript / Project Report Title</div>
+            <div class="pub-authors">Xiaoying Wu</div>
+            <div class="pub-venue">Preprint / Report · 2026</div>
+            <div class="pub-links">
+              <a href="#" target="_blank" rel="noreferrer">PDF</a>
+              <a href="#" target="_blank" rel="noreferrer">Code</a>
+              <a href="#" target="_blank" rel="noreferrer">Project</a>
+            </div>
+            <div class="pub-tldr">
+              <strong>TL;DR:</strong> One sentence: what you did + why it matters.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="block">
+        <h2>Projects</h2>
+        <ul class="clean">
+          <li>
+            <span class="tag">2026</span>
+            <strong>Dream Fusion Personal System</strong> — dreamy UI dashboard.
+            <a href="#" target="_blank" rel="noreferrer">demo</a> ·
+            <a href="#" target="_blank" rel="noreferrer">code</a>
+          </li>
+          <li>
+            <span class="tag">2026</span>
+            <strong>Vision Paper Notes</strong> — study notes + slides.
+            <a href="#" target="_blank" rel="noreferrer">link</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Notes -->
+      <section id="notes" class="block">
+        <h2>Notes</h2>
+        <p class="muted">Turn learning into artifacts: notes, code, slides, and demos.</p>
+        <ul class="clean">
+          <li><span class="tag">ML</span> Transformer from scratch · <a href="#" target="_blank" rel="noreferrer">repo</a></li>
+          <li><span class="tag">Vision</span> Paper walkthrough slides · <a href="#" target="_blank" rel="noreferrer">slides</a></li>
+        </ul>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="block">
+        <h2>Contact</h2>
+        <p>
+          Email me at:
+          <a href="mailto:wxy2210330146@gmail.com">wxy2210330146@gmail.com</a>
+          or
+          <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> Xiaoying Wu</span>
+        <span class="sep">·</span>
+        <span class="muted">Hosted on GitHub Pages</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="assets/main.js"></script>
 </body>
 </html>
