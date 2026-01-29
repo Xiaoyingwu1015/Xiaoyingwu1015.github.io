@@ -1,34 +1,26 @@
 :root{
-  /* lighter dreamy palette */
-  --ink:#1A1236;           /* text ink (not pure black) */
-  --violet:#3B2A6B;
-  --slate:#6E6487;
-  --periwinkle:#7A79C8;    /* main accent (lighter) */
-  --cream:#F3E6D6;         /* creamy background */
-  --sand:#E9D6BE;
-  --silver:#F7F9FA;
-  --rose:#D94A7A;
-
-  /* theme (LIGHT by default) */
-  --bg: #F6EFE6;           /* base */
-  --text: rgba(26,18,54,0.92);
-  --muted: rgba(26,18,54,0.62);
-  --border: rgba(26,18,54,0.10);
+  /* Lavender Mist (light, clean) */
+  --bg: #F5F2FF;
+  --text: rgba(32, 24, 64, 0.92);
+  --muted: rgba(32, 24, 64, 0.62);
+  --border: rgba(32, 24, 64, 0.10);
 
   /* glass */
-  --panel: rgba(255,255,255,0.68);
-  --panel2: rgba(255,255,255,0.52);
-  --shadow: 0 14px 40px rgba(26,18,54,0.10);
+  --panel: rgba(255,255,255,0.74);
+  --panel2: rgba(255,255,255,0.60);
+  --shadow: 0 16px 44px rgba(32,24,64,0.10);
   --radius: 18px;
 
+  /* accents */
+  --accent: #8D7CFF;   /* main lavender */
+  --accent2: #B59BFF;  /* secondary lavender */
+
   /* glows */
-  --accent: var(--periwinkle);
-  --accent2: var(--rose);
-  --glow1: rgba(122,121,200,0.22);
-  --glow2: rgba(217,74,122,0.12);
+  --glow1: rgba(141,124,255,0.22);
+  --glow2: rgba(181,155,255,0.18);
 }
 
-/* keep dark mode as optional */
+/* optional dark mode (still available) */
 [data-theme="dark"]{
   --bg: #0b0c10;
   --text: rgba(255,255,255,0.90);
@@ -37,20 +29,12 @@
   --panel: rgba(255,255,255,0.075);
   --panel2: rgba(255,255,255,0.05);
   --shadow: 0 18px 55px rgba(0,0,0,0.38);
-  --glow1: rgba(95,91,149,0.22);
-  --glow2: rgba(211,42,98,0.14);
+  --accent: #8D7CFF;
+  --accent2: #D9C8FF;
+  --glow1: rgba(141,124,255,0.22);
+  --glow2: rgba(217,200,255,0.12);
 }
 
-
-[data-theme="light"]{
-  --bg: #fbfaf7;
-  --text: rgba(13,6,42,0.92);
-  --muted: rgba(13,6,42,0.62);
-  --border: rgba(13,6,42,0.12);
-  --panel: rgba(13,6,42,0.04);
-  --panel2: rgba(13,6,42,0.03);
-  --shadow: 0 16px 40px rgba(13,6,42,0.10);
-}
 
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
