@@ -1,9 +1,9 @@
 (function () {
-  // Year
+  // year
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Featured filter
+  // featured filter
   const chips = document.querySelectorAll(".chip");
   const items = document.querySelectorAll("#featuredGrid .item");
   chips.forEach((chip) => {
@@ -19,7 +19,7 @@
     });
   });
 
-  // Subtle sparkles behind content
+  // sparkles
   const c = document.getElementById("sparkles");
   if (!c) return;
   const ctx = c.getContext("2d");
@@ -50,7 +50,6 @@
     for (const p of P) {
       p.x += p.vx;
       p.y += p.vy;
-
       if (p.y > window.innerHeight + 20) p.y = -20;
       if (p.x < -20) p.x = window.innerWidth + 20;
       if (p.x > window.innerWidth + 20) p.x = -20;
@@ -73,6 +72,5 @@
     main.style.position = "relative";
     main.style.zIndex = "1";
   }
-
   draw();
 })();
