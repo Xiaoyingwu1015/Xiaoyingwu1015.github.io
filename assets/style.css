@@ -1,15 +1,15 @@
 :root{
   --radius: 18px;
-  --shadow: 0 18px 55px rgba(0,0,0,0.38);
-  --border: rgba(255,255,255,0.22);
+  --shadow: 0 18px 55px rgba(0,0,0,0.22);
+  --border: rgba(20,18,30,0.16);
 
-  /* card glass = white mist */
-  --glass1: rgba(255,255,255,0.30);
-  --glass2: rgba(255,255,255,0.18);
+  /* glass cards = white mist */
+  --glass1: rgba(255,255,255,0.34);
+  --glass2: rgba(255,255,255,0.20);
 
-  /* text */
-  --text: rgba(255,255,255,0.88);
-  --muted: rgba(255,255,255,0.58);
+  /* DARK text (as you requested) */
+  --text: rgba(20,18,30,0.92);
+  --muted: rgba(20,18,30,0.62);
 
   /* accents */
   --lav: rgba(194,178,255,0.80);
@@ -25,8 +25,7 @@ body{
     "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
 
   color: var(--text);
-  background: #0b0a10;
-
+  background: #ffffff;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -38,8 +37,9 @@ body::before{
   inset: 0;
   z-index: -2;
   background: url("art.jpg") center/cover no-repeat;
-  /* tune these if needed */
-  filter: contrast(1.22) saturate(1.12) brightness(0.90);
+
+  /* make the painting visible but still dreamy */
+  filter: contrast(1.18) saturate(1.08) brightness(0.98);
 }
 
 /* SOFT HAZE (very light, won't kill painting) */
@@ -49,14 +49,20 @@ body::after{
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1100px 700px at 18% 10%, rgba(194,178,255,0.14), transparent 62%),
+    radial-gradient(1100px 700px at 18% 10%, rgba(194,178,255,0.12), transparent 62%),
     radial-gradient(1100px 700px at 88% 18%, rgba(255,190,220,0.10), transparent 64%),
-    linear-gradient(180deg, rgba(16,14,24,0.18), rgba(8,8,12,0.26));
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.18));
 }
 
 /* links */
-a{ color:inherit; text-decoration:none; border-bottom:1px solid transparent; }
-a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
+a{
+  color: rgba(20,18,30,0.86);
+  text-decoration:none;
+  border-bottom:1px solid rgba(20,18,30,0.16);
+}
+a:hover{
+  border-bottom-color: rgba(120,100,200,0.55);
+}
 
 /* topbar */
 .topbar{
@@ -70,7 +76,7 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
   padding: 14px 18px;
 
   background: rgba(170,170,180,0.46);
-  border-bottom: 1px solid rgba(255,255,255,0.10);
+  border-bottom: 1px solid rgba(20,18,30,0.10);
 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -79,7 +85,8 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
 .brand{
   font-weight: 800;
   letter-spacing: 0.2px;
-  color: rgba(255,255,255,0.90);
+  color: rgba(20,18,30,0.92);
+  border-bottom-color: transparent;
 }
 
 .nav{
@@ -90,14 +97,14 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
 }
 .nav a{
   font-size: 14px;
-  color: rgba(255,255,255,0.78);
+  color: rgba(20,18,30,0.72);
   padding: 6px 8px;
   border-radius: 10px;
+  border-bottom-color: transparent;
 }
 .nav a:hover{
-  color: rgba(255,255,255,0.96);
-  background: rgba(255,255,255,0.06);
-  border-bottom-color: transparent;
+  color: rgba(20,18,30,0.92);
+  background: rgba(255,255,255,0.18);
 }
 
 /* layout */
@@ -120,6 +127,7 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* left column */
 .side{
   position: sticky;
   top: 76px;
@@ -135,16 +143,22 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
   height: 96px;
   border-radius: 20px;
   object-fit: cover;
-  border: 1px solid rgba(255,255,255,0.22);
+  border: 1px solid rgba(20,18,30,0.14);
+  background: rgba(255,255,255,0.25);
 }
 
 .name{
   margin: 12px 0 6px;
   font-size: 20px;
   line-height: 1.25;
-  color: rgba(255,255,255,0.92);
+  color: rgba(20,18,30,0.92);
 }
-.cn{ font-weight: 600; color: rgba(255,255,255,0.62); font-size: 14px; margin-left: 6px; }
+.cn{
+  font-weight: 600;
+  color: rgba(20,18,30,0.55);
+  font-size: 14px;
+  margin-left: 6px;
+}
 
 .headline{
   margin: 0 0 12px;
@@ -154,7 +168,7 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
 }
 
 .meta{
-  border-top: 1px solid rgba(255,255,255,0.16);
+  border-top: 1px solid rgba(20,18,30,0.14);
   margin-top: 12px;
   padding-top: 12px;
 }
@@ -165,8 +179,8 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
   margin: 8px 0;
   font-size: 13px;
 }
-.k{ color: rgba(255,255,255,0.55); min-width: 72px; }
-.v{ color: rgba(255,255,255,0.82); text-align: right; }
+.k{ color: rgba(20,18,30,0.55); min-width: 72px; }
+.v{ color: rgba(20,18,30,0.82); text-align: right; }
 
 .links{
   display:flex;
@@ -177,14 +191,14 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
 .pill{
   font-size: 13px;
   padding: 7px 10px;
-  border: 1px solid rgba(194,178,255,0.22);
+  border: 1px solid rgba(120,100,200,0.22);
   border-radius: 999px;
-  background: rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.16);
+  color: rgba(20,18,30,0.82);
 }
 .pill:hover{
-  box-shadow: 0 10px 28px rgba(194,178,255,0.16);
-  border-color: rgba(194,178,255,0.42);
+  box-shadow: 0 10px 28px rgba(120,100,200,0.12);
+  border-color: rgba(120,100,200,0.36);
   border-bottom-color: transparent;
 }
 
@@ -192,42 +206,55 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
   margin-top: 14px;
   padding: 12px;
   border-radius: 14px;
-  background: linear-gradient(90deg, rgba(194,178,255,0.14), rgba(255,190,220,0.10));
-  border: 1px solid rgba(255,255,255,0.16);
+  background: linear-gradient(90deg, rgba(194,178,255,0.16), rgba(255,190,220,0.12));
+  border: 1px solid rgba(20,18,30,0.12);
   font-size: 13px;
-  color: rgba(255,255,255,0.72);
+  color: rgba(20,18,30,0.72);
 }
-.profile-note strong{ color: rgba(255,255,255,0.90); }
+.profile-note strong{ color: rgba(20,18,30,0.92); }
 
 .small{ padding: 16px; }
-.small-title{ font-weight: 800; margin-bottom: 8px; color: rgba(255,255,255,0.90); }
+.small-title{
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: rgba(20,18,30,0.92);
+}
 .bullets{
   margin: 0;
   padding-left: 18px;
-  color: rgba(255,255,255,0.72);
+  color: rgba(20,18,30,0.72);
   line-height: 1.8;
   font-size: 14px;
 }
 
+/* right column */
 .content{ padding: 6px 0; }
 .block{ padding: 16px 18px; margin-bottom: 14px; }
 
-h2{ margin: 0 0 10px; font-size: 18px; color: rgba(255,255,255,0.92); }
-p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
+h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: rgba(20,18,30,0.92);
+}
+p{
+  margin: 10px 0;
+  line-height: 1.75;
+  color: rgba(20,18,30,0.80);
+}
 .muted{ color: var(--muted); }
-.em{ color: rgba(255,255,255,0.92); font-weight: 800; }
+.em{ color: rgba(20,18,30,0.92); font-weight: 800; }
 
 /* timeline */
 .timeline{
   margin: 0;
   padding-left: 18px;
-  color: rgba(255,255,255,0.76);
+  color: rgba(20,18,30,0.76);
   line-height: 1.9;
 }
 .date{
   display:inline-block;
   min-width: 84px;
-  color: rgba(255,255,255,0.90);
+  color: rgba(20,18,30,0.90);
   font-variant-numeric: tabular-nums;
 }
 
@@ -240,18 +267,18 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
 }
 .filters{ display:flex; gap: 8px; }
 .chip{
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.74);
+  border: 1px solid rgba(20,18,30,0.16);
+  background: rgba(255,255,255,0.14);
+  color: rgba(20,18,30,0.74);
   padding: 7px 10px;
   border-radius: 999px;
   cursor:pointer;
   font-size: 13px;
 }
 .chip.active{
-  color: rgba(255,255,255,0.90);
-  background: rgba(194,178,255,0.16);
-  border-color: rgba(194,178,255,0.26);
+  color: rgba(20,18,30,0.90);
+  background: rgba(194,178,255,0.18);
+  border-color: rgba(120,100,200,0.22);
 }
 
 .grid{
@@ -261,12 +288,12 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   margin-top: 12px;
 }
 
-/* inner cards should be light too (NOT dark!) */
+/* inner cards */
 .item, .pub{
-  border: 1px solid rgba(255,255,255,0.16);
+  border: 1px solid rgba(20,18,30,0.14);
   border-radius: 16px;
   padding: 14px;
-  background: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.14);
 }
 
 .item-head{
@@ -275,9 +302,9 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   justify-content:space-between;
   gap: 12px;
 }
-.item-title{ font-weight: 900; color: rgba(255,255,255,0.92); }
+.item-title{ font-weight: 900; color: rgba(20,18,30,0.92); }
 .item-sub{
-  color: rgba(255,255,255,0.62);
+  color: rgba(20,18,30,0.62);
   margin-top: 4px;
   font-size: 13px;
   line-height: 1.6;
@@ -288,23 +315,23 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   font-size: 12px;
   padding: 5px 8px;
   border-radius: 999px;
-  border: 1px solid rgba(255,190,220,0.42);
-  background: rgba(255,190,220,0.20);
-  color: rgba(255,255,255,0.86);
+  border: 1px solid rgba(255,120,160,0.30);
+  background: rgba(255,190,220,0.22);
+  color: rgba(20,18,30,0.82);
 }
 .badge.ghost{
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(255,255,255,0.16);
-  color: rgba(255,255,255,0.70);
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(20,18,30,0.14);
+  color: rgba(20,18,30,0.70);
 }
 
 .item-actions{ display:flex; gap: 12px; margin-top: 10px; }
 .btn-link{
   font-size: 13px;
-  color: rgba(255,255,255,0.84);
-  border-bottom: 1px solid rgba(255,255,255,0.20);
+  color: rgba(20,18,30,0.86);
+  border-bottom: 1px solid rgba(20,18,30,0.18);
 }
-.btn-link:hover{ border-bottom-color: rgba(194,178,255,0.55); }
+.btn-link:hover{ border-bottom-color: rgba(120,100,200,0.55); }
 
 /* publications */
 .pub{
@@ -320,23 +347,32 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   display:flex;
   align-items:center;
   justify-content:center;
-  border: 1px solid rgba(255,255,255,0.20);
-  color: rgba(255,255,255,0.72);
-  background: linear-gradient(180deg, rgba(194,178,255,0.16), rgba(255,190,220,0.10));
+  border: 1px solid rgba(20,18,30,0.14);
+  color: rgba(20,18,30,0.72);
+  background: linear-gradient(180deg, rgba(194,178,255,0.18), rgba(255,190,220,0.12));
   font-size: 13px;
 }
-.pub-title{ font-weight: 900; line-height: 1.35; color: rgba(255,255,255,0.92); }
-.pub-authors, .pub-venue{ color: rgba(255,255,255,0.62); font-size: 13px; margin-top: 4px; }
-.pub-links{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 6px; }
+.pub-title{ font-weight: 900; line-height: 1.35; color: rgba(20,18,30,0.92); }
+.pub-authors, .pub-venue{
+  color: rgba(20,18,30,0.62);
+  font-size: 13px;
+  margin-top: 4px;
+}
+.pub-links{
+  display:flex;
+  gap: 12px;
+  flex-wrap:wrap;
+  margin-top: 6px;
+}
 .pub-links a{
-  color: rgba(255,255,255,0.84);
-  border-bottom: 1px solid rgba(255,255,255,0.20);
+  color: rgba(20,18,30,0.86);
+  border-bottom: 1px solid rgba(20,18,30,0.18);
   font-size: 13px;
 }
-.pub-links a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
+.pub-links a:hover{ border-bottom-color: rgba(120,100,200,0.55); }
 .pub-tldr{
   margin-top: 8px;
-  color: rgba(255,255,255,0.62);
+  color: rgba(20,18,30,0.62);
   font-size: 13px;
   line-height: 1.7;
 }
@@ -344,7 +380,7 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
 .clean{
   margin: 0;
   padding-left: 18px;
-  color: rgba(255,255,255,0.76);
+  color: rgba(20,18,30,0.76);
   line-height: 1.9;
 }
 .tag{
@@ -352,9 +388,9 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   min-width: 52px;
   font-size: 12px;
   padding: 3px 8px;
-  border: 1px solid rgba(255,255,255,0.16);
+  border: 1px solid rgba(20,18,30,0.14);
   border-radius: 999px;
-  color: rgba(255,255,255,0.72);
+  color: rgba(20,18,30,0.72);
   margin-right: 8px;
 }
 
@@ -365,11 +401,25 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   align-items:center;
   justify-content:center;
   margin-top: 18px;
-  color: rgba(255,255,255,0.56);
+  color: rgba(20,18,30,0.58);
   font-size: 13px;
   padding: 14px 0 6px;
 }
 .sep{ opacity: .6; }
+
+/* sparkles canvas sits behind content */
+#sparkles{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ensure content above sparkles */
+main{
+  position: relative;
+  z-index: 1;
+}
 
 /* Responsive */
 @media (max-width: 920px){
@@ -377,64 +427,3 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.80); }
   .side{ position: relative; top: 0; }
   .nav{ display:none; }
 }
-
-/* ===== Switch to DARK TEXT (put at the very end of style.css) ===== */
-:root{
-  --text-dark: rgba(20, 18, 30, 0.92);
-  --muted-dark: rgba(20, 18, 30, 0.62);
-  --border-dark: rgba(20, 18, 30, 0.16);
-}
-
-/* all text -> dark */
-body{
-  color: var(--text-dark);
-}
-
-/* headings / strong */
-h1, h2, .name, .item-title, .pub-title{
-  color: var(--text-dark) !important;
-}
-
-/* secondary text */
-.muted, .headline, .k, .item-sub, .pub-authors, .pub-venue, .clean, .timeline{
-  color: var(--muted-dark) !important;
-}
-
-/* links */
-a, .btn-link{
-  color: rgba(20,18,30,0.86) !important;
-  border-bottom-color: rgba(20,18,30,0.18);
-}
-a:hover, .btn-link:hover{
-  border-bottom-color: rgba(120,100,200,0.55);
-}
-
-/* pills/chips/badges text */
-.pill, .chip, .badge, .tag{
-  color: rgba(20,18,30,0.82) !important;
-}
-
-/* make borders slightly darker to match black text aesthetics */
-.card, .block, .item, .pub{
-  border-color: var(--border-dark) !important;
-}
-
-/* top nav text to dark too */
-.brand{
-  color: rgba(20,18,30,0.92) !important;
-}
-.nav a{
-  color: rgba(20,18,30,0.72) !important;
-}
-.nav a:hover{
-  color: rgba(20,18,30,0.92) !important;
-}
-
-/* profile note text */
-.profile-note{
-  color: rgba(20,18,30,0.72) !important;
-}
-.profile-note strong{
-  color: rgba(20,18,30,0.92) !important;
-}
-
