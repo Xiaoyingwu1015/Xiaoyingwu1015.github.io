@@ -103,15 +103,29 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
   gap: 16px;
 }
 
-/* cards & blocks = translucent glass with WHITE text (like screenshot 1) */
+/* 你要的：偏白、很淡、很透的玻璃卡片 */
 .card, .block{
-  background: linear-gradient(180deg, var(--card), var(--card2));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.16));
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 18px;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+/* 卡片内文字：白 + 低对比（第一张图那种“雾感文字”） */
+.card *, .block *{
+  color: rgba(255,255,255,0.82);
+}
+.card .muted, .block .muted,
+.card .headline, .block .headline,
+.card .k, .block .k,
+.card .item-sub, .block .item-sub,
+.card .pub-authors, .block .pub-authors,
+.card .pub-venue, .block .pub-venue{
+  color: rgba(255,255,255,0.58);
+}
+
 
 .side{
   position: sticky;
