@@ -27,44 +27,23 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
     "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
-  color: var(--text);
 
-  /* IMPORTANT: keep painting visible */
-  background:
-    radial-gradient(1100px 700px at 18% 10%, rgba(194,178,255,0.22), transparent 62%),
-    radial-gradient(1100px 700px at 88% 18%, rgba(255,190,220,0.16), transparent 64%),
-    radial-gradient(1400px 900px at 40% 38%, rgba(255,255,255,0.06), transparent 66%),
-    url("art.jpg"),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-
-  background-size: auto, auto, auto, cover, auto;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  /* this is the key to screenshot-1 look */
-  background-blend-mode: screen, screen, normal, overlay, normal;
+  /* 这里不要再用复杂 blend，直接用伪元素铺底 */
+  background: #0b0a10;
+  color: rgba(255,255,255,0.88);
 
   min-height: 100vh;
   overflow-x: hidden;
 }
+
 
 a{ color:inherit; text-decoration:none; border-bottom:1px solid transparent; }
 a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
 
 /* topbar: grey translucent strip like your first screenshot */
 .topbar{
-  position: sticky;
-  top:0;
-  z-index: 20;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding: 14px 18px;
-
-  background: rgba(170,170,180,0.42);
+  background: rgba(170,170,180,0.46);
   border-bottom: 1px solid rgba(255,255,255,0.10);
-
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -103,28 +82,28 @@ a:hover{ border-bottom-color: rgba(194,178,255,0.55); }
   gap: 16px;
 }
 
-/* 你要的：偏白、很淡、很透的玻璃卡片 */
+
+
 .card, .block{
-  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.16));
-  border: 1px solid rgba(255,255,255,0.20);
+  background: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0.18));
+  border: 1px solid rgba(255,255,255,0.22);
   border-radius: 18px;
   box-shadow: 0 18px 55px rgba(0,0,0,0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* 卡片内文字：白 + 低对比（第一张图那种“雾感文字”） */
-.card *, .block *{
-  color: rgba(255,255,255,0.82);
+/* 卡片内文字：白雾感 */
+.card, .block{
+  color: rgba(255,255,255,0.86);
 }
 .card .muted, .block .muted,
 .card .headline, .block .headline,
 .card .k, .block .k,
-.card .item-sub, .block .item-sub,
-.card .pub-authors, .block .pub-authors,
-.card .pub-venue, .block .pub-venue{
+.item-sub, .pub-authors, .pub-venue{
   color: rgba(255,255,255,0.58);
 }
+
 
 
 .side{
@@ -375,4 +354,26 @@ p{ margin: 10px 0; line-height: 1.75; color: rgba(255,255,255,0.78); }
   .layout{ grid-template-columns: 1fr; }
   .side{ position: relative; top: 0; }
   .nav{ display:none; }
+}
+
+/* 画作：保证明显（对比/饱和略提高），永远在最底层 */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("art.jpg") center/cover no-repeat;
+  filter: contrast(1.18) saturate(1.10) brightness(0.92);
+}
+
+/* 雾：只“轻轻”压一下，不要把画盖没 */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1100px 700px at 18% 10%, rgba(194,178,255,0.14), transparent 62%),
+    radial-gradient(1100px 700px at 88% 18%, rgba(255,190,220,0.10), transparent 64%),
+    linear-gradient(180deg, rgba(16,14,24,0.18), rgba(8,8,12,0.26));
 }
