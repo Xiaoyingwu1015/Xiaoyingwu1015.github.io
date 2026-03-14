@@ -1,95 +1,314 @@
-<section class="content">
-  <section id="about" class="block sec">
-    <h3>About</h3>
-    <p>
-      I am an undergraduate student (Year 2) in the Department of Mathematics at Fudan University.
-      I am interested in <span class="em">machine learning</span>, <span class="em">3D vision</span>,
-      and building clean, reproducible research code.
-    </p>
-    <p class="muted">
-      (Replace this with 2–4 sentences: who you are, what you do, what you seek.)
-    </p>
-  </section>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xiaoying Wu | Homepage</title>
+  <meta name="description" content="Xiaoying Wu — Personal homepage." />
 
-  <section id="news" class="block sec">
-    <h3>News</h3>
-    <p><span class="date">2026-01</span> Building a dreamy personal system UI + studying ML fundamentals.</p>
-    <p><span class="date">2026-01</span> Reading recent vision papers and preparing presentation slides.</p>
-  </section>
+  <style>
+    :root{
+      --bg:#f4f6f9;
+      --bg2:#eef2f7;
+      --paper: rgba(255,255,255,.72);
+      --panel: rgba(255,255,255,.56);
 
-  <section id="featured" class="block sec">
-    <h3>Featured</h3>
+      --ink:#0f141b;
+      --muted:#556173;
+      --faint:#7b8798;
 
-    <div class="highlightCard">
-      <div class="hlLabel">Selected Project</div>
-      <div class="hlTitle">
-        <a href="#" target="_blank" rel="noreferrer">Dream Fusion Personal System</a>
+      --line: rgba(15,20,27,.10);
+      --line2: rgba(15,20,27,.06);
+
+      --accent:#5f7a99;
+      --accent2:#9bb0c6;
+
+      --shadow: 0 22px 80px rgba(12, 18, 28, .12);
+      --shadow2: 0 10px 30px rgba(12, 18, 28, .10);
+
+      --r: 18px;
+      --r2: 14px;
+      --max: 980px;
+
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    [data-theme="night"]{
+      --bg:#0c0f14;
+      --bg2:#0b111a;
+      --paper: rgba(255,255,255,.06);
+      --panel: rgba(255,255,255,.05);
+
+      --ink:#e9eef7;
+      --muted:#a8b4c8;
+      --faint:#7f8aa0;
+
+      --line: rgba(233,238,247,.14);
+      --line2: rgba(233,238,247,.08);
+
+      --accent:#9fb6d4;
+      --accent2:#7289a8;
+
+      --shadow: 0 26px 90px rgba(0,0,0,.45);
+      --shadow2: 0 12px 34px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      line-height:1.65;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 700px at 12% 8%, rgba(95,122,153,.20), transparent 60%),
+        radial-gradient(1000px 650px at 88% 0%, rgba(155,176,198,.18), transparent 55%),
+        radial-gradient(800px 520px at 70% 85%, rgba(95,122,153,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* subtle grain effect */
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='190' height='190' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+      mix-blend-mode:multiply;
+      opacity:.16;
+    }
+    [data-theme="night"] body:before{ opacity:.10; mix-blend-mode:screen; }
+
+    a{
+      color:var(--accent);
+      text-decoration:none;
+      border-bottom: 1px solid rgba(95,122,153,.25);
+      padding-bottom:1px;
+    }
+    a:hover{ border-bottom-color: rgba(95,122,153,.55); }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 52px 18px 88px;
+    }
+
+    /* top bar */
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .id{ min-width: 260px; }
+    h1{ margin:0; font-size: 46px; font-weight: 780; letter-spacing:.2px; }
+    h1 .cn { font-size: 28px; font-weight: 500; margin-left: 8px; color: var(--muted); }
+    .sub{ margin-top: 8px; color: var(--muted); font-size: 16px; }
+
+    .quote{ max-width: 560px; text-align:right; font-family: var(--serif); }
+    .quote .q{ white-space:pre-line; font-style: italic; font-size: 18px; line-height:1.45; opacity:.95; }
+    .quote .a{ margin-top: 10px; font-size: 15px; color: var(--faint); letter-spacing:.3px; }
+
+    .navrow{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-top: 14px;
+    }
+    .nav{ display:flex; gap: 12px; flex-wrap:wrap; font-size: 14px; color: var(--muted); }
+    .nav a{
+      border-bottom: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line2);
+      background: rgba(255,255,255,.34);
+    }
+    [data-theme="night"] .nav a{ background: rgba(255,255,255,.03); }
+    .nav a:hover{ transform: translateY(-1px); background: var(--paper); }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; padding: 10px 16px; border-radius: 999px;
+      border: 1px solid var(--line); background: rgba(255,255,255,.34);
+      box-shadow: var(--shadow2); backdrop-filter: blur(10px);
+      color: var(--ink); cursor:pointer; user-select:none; font-size: 14px;
+    }
+    [data-theme="night"] .btn{ background: rgba(255,255,255,.03); }
+    .dot{ width:8px; height:8px; border-radius:999px; background: rgba(95,122,153,.8); box-shadow: 0 0 0 4px rgba(95,122,153,.12); }
+
+    /* main card */
+    .card{
+      margin-top: 18px; border-radius: var(--r); background: var(--paper);
+      border: 1px solid rgba(255,255,255,.28); box-shadow: var(--shadow);
+      backdrop-filter: blur(14px); overflow:hidden;
+    }
+
+    .hero{ display:grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 24px; }
+    .photo{ border-radius: var(--r2); overflow:hidden; border: 1px solid var(--line); background: var(--bg2); }
+    .photo img{ width:100%; display:block; filter: saturate(.95); }
+
+    .about h2, .sec h3{
+      margin:0; font-size: 13px; text-transform: uppercase; letter-spacing:.85px; color: var(--faint);
+    }
+    .about p{ margin: 12px 0 0; font-size: 16px; line-height:1.75; }
+    .about b{ color: var(--accent); }
+
+    .divider{ height:1px; background: var(--line2); }
+
+    /* sections */
+    .sections{ padding: 18px; display:grid; grid-template-columns: 1fr; gap: 18px; }
+    .sec{
+      background: rgba(255,255,255,.4); border: 1px solid var(--line2);
+      border-radius: 16px; padding: 18px;
+    }
+    [data-theme="night"] .sec{ background: rgba(255,255,255,.04); }
+    .sec p{ margin: 10px 0 0; font-size: 15px; }
+
+    /* Publication Card */
+    .highlightCard{
+      margin-top: 12px; border-radius: 14px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.5); padding: 16px;
+    }
+    .hlTitle{ font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .hlAuthors{ color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+    .hlVenue{ color: var(--accent); font-size: 14px; font-weight: 600; }
+
+    .footer{
+      margin-top: 24px; padding: 14px 0; border-top: 1px solid var(--line);
+      color: var(--faint); font-size: 13px; display:flex; justify-content:space-between;
+    }
+
+    @media (max-width: 800px){
+      .topbar{ flex-direction:column; }
+      .quote{ text-align:left; margin-top: 10px; }
+      .hero{ grid-template-columns: 1fr; }
+      .photo{ max-width: 200px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="id">
+        <h1>Xiaoying Wu <span class="cn">吴晓英</span></h1>
+        <div class="sub">Undergraduate · Math · Fudan University</div>
       </div>
-      <div class="hlAuthors">Xiaoying Wu</div>
-      <div class="hlVenue">Project · 2026</div>
-      <div class="hlDesc">
-        A dreamy dashboard / personal system built with HTML, CSS, and JavaScript,
-        inspired by soft visual design and personal workflow needs.
-      </div>
-      <div class="hlActions">
-        <a href="#" target="_blank" rel="noreferrer">Code</a>
-        <a href="#" target="_blank" rel="noreferrer">Demo</a>
-        <a href="#" target="_blank" rel="noreferrer">Writeup</a>
+
+      <div class="quote">
+        <div class="q">"The essence of mathematics is not to make simple things complicated, but to make complicated things simple."</div>
+        <div class="a"> —— S. Gudder</div>
       </div>
     </div>
-  </section>
 
-  <section id="publications" class="block sec">
-    <h3>Publications</h3>
+    <div class="navrow">
+      <div class="nav">
+        <a href="#about">About</a>
+        <a href="#publication">Publication</a>
+        <a href="#interests">Interests</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-    <div class="highlightCard">
-      <div class="hlLabel">Highlight</div>
-      <div class="hlTitle">
-        <a href="#" target="_blank" rel="noreferrer">Manuscript / Project Report Title</a>
-      </div>
-      <div class="hlAuthors">Xiaoying Wu</div>
-      <div class="hlVenue">Preprint / Report · 2026</div>
-      <div class="hlDesc">
-        One sentence on what you did, how you did it, and why it matters.
-      </div>
-      <div class="hlActions">
-        <a href="#" target="_blank" rel="noreferrer">PDF</a>
-        <a href="#" target="_blank" rel="noreferrer">Code</a>
-        <a href="#" target="_blank" rel="noreferrer">Project</a>
-      </div>
+      <button class="btn" id="themeBtn" type="button">
+        <span class="dot"></span>
+        <span id="themeText">Night</span>
+      </button>
     </div>
-  </section>
 
-  <section id="projects" class="block sec">
-    <h3>Projects</h3>
-    <p>
-      <span class="date">2026</span>
-      <strong>Dream Fusion Personal System</strong> — dreamy UI dashboard.
-      <a href="#" target="_blank" rel="noreferrer">demo</a> ·
-      <a href="#" target="_blank" rel="noreferrer">code</a>
-    </p>
-  </section>
+    <main class="card">
+      <section class="hero" id="about">
+        <div class="photo">
+          <img src="assets/avatar.jpg" alt="Xiaoying Wu" onerror="this.src='https://via.placeholder.com/300x400?text=Photo'">
+        </div>
 
-  <section id="notes" class="block sec">
-    <h3>Notes</h3>
-    <p class="muted">Turn learning into artifacts: notes, code, slides, and demos.</p>
-    <p><span class="date">ML</span> Transformer from scratch · <a href="#" target="_blank" rel="noreferrer">repo</a></p>
-    <p><span class="date">Vision</span> Paper walkthrough slides · <a href="#" target="_blank" rel="noreferrer">slides</a></p>
-  </section>
+        <div class="about">
+          <h2>About Me</h2>
+          <p>
+            Hi! I am <b>Xiaoying Wu</b>, a Year 2 undergraduate student in the <b>Department of Mathematics</b> at <b>Fudan University</b>. 
+          </p>
+          <p>
+            My research interests lie in <b>Machine Learning</b>, <b>3D Vision</b>, and <b>Representation Learning</b>. I am passionate about exploring the mathematical foundations of computer vision and building efficient, clean ML systems.
+          </p>
+          <p style="color: var(--muted); font-size: 14px;">
+            Currently seeking opportunities for research collaboration and internships.
+          </p>
+        </div>
+      </section>
 
-  <section id="contact" class="block sec">
-    <h3>Contact</h3>
-    <p>
-      Email:
-      <a href="mailto:wxy2210330146@gmail.com">wxy2210330146@gmail.com</a>
-      /
-      <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>
-    </p>
-  </section>
+      <div class="divider"></div>
 
-  <footer class="footer">
-    <span>© <span id="year"></span> Xiaoying Wu</span>
-    <span class="sep">·</span>
-    <span class="muted">Hosted on GitHub Pages</span>
-  </footer>
-</section>
+      <section class="sections">
+        <div class="sec" id="publication">
+          <h3>Selected Publication / Projects</h3>
+          
+          <div class="highlightCard">
+            <div class="hlTitle">Dream Fusion Personal System</div>
+            <div class="hlAuthors"><b>Xiaoying Wu</b>, ...</div>
+            <div class="hlVenue">Project Report · 2026</div>
+            <p style="font-size: 14px; color: var(--muted); margin-top: 8px;">
+              A dreamy dashboard personal system built with HTML/CSS/JS, focusing on aesthetic UI and efficient information management.
+            </p>
+          </div>
+
+          <p style="color: var(--faint); font-size: 13px; font-style: italic;">More content coming soon...</p>
+        </div>
+
+        <div class="sec" id="interests">
+          <h3>Interests</h3>
+          <p>
+            Beyond mathematics and coding, I am fascinated by 3D multiview geometry and self-supervised learning. In my spare time, I enjoy turning learning into artifacts like technical notes and slides.
+          </p>
+        </div>
+
+        <div class="sec" id="contact">
+          <h3>Contact</h3>
+          <p>
+            Feel free to reach out for collaboration: <br>
+            Email: <a href="mailto:wxy2210330146@gmail.com">wxy2210330146@gmail.com</a> / 
+            <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">
+      <div>© <span id="y"></span> Xiaoying Wu</div>
+      <div style="opacity: 0.6;">Fudan University · Math</div>
+    </div>
+  </div>
+
+  <script>
+    // Set Current Year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Theme Toggle Logic
+    const root = document.documentElement;
+    const themeBtn = document.getElementById("themeBtn");
+    const themeText = document.getElementById("themeText");
+
+    if(localStorage.getItem("theme") === "night") {
+      root.setAttribute("data-theme", "night");
+      themeText.textContent = "Day";
+    }
+
+    themeBtn.addEventListener("click", () => {
+      const isNight = root.getAttribute("data-theme") === "night";
+      if(isNight) {
+        root.removeAttribute("data-theme");
+        localStorage.setItem("theme", "day");
+        themeText.textContent = "Night";
+      } else {
+        root.setAttribute("data-theme", "night");
+        localStorage.setItem("theme", "night");
+        themeText.textContent = "Day";
+      }
+    });
+  </script>
+</body>
+</html>
