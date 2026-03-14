@@ -7,30 +7,6 @@
   <meta name="description" content="Xiaoying Wu - Undergraduate (Year 2), Department of Mathematics, Fudan University." />
 
   <link rel="stylesheet" href="assets/style.css?v=20260129_fix03" />
-  <style>
-    /* 针对新增照片墙的微调，不影响原背景 */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .photo-item {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-    }
-    .photo-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    .photo-item img:hover {
-      transform: scale(1.05);
-    }
-  </style>
 </head>
 
 <body>
@@ -39,10 +15,7 @@
 
     <nav class="nav">
       <a href="#about">About</a>
-      <a href="#news">News</a>
-      <a href="#projects">Projects</a>
-      <a href="#notes">Notes</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -52,20 +25,18 @@
   <main id="top" class="layout">
     <aside class="side">
       <section class="card profile">
-        <img class="avatar" src="assets/avatar.jpg" alt="Avatar" onerror="this.style.display='none';" />
+        <img class="avatar" src="assets/avatar.jpg" alt="Xiaoying Wu" onerror="this.src='https://via.placeholder.com/150';" />
 
         <h1 class="name">Xiaoying Wu <span class="cn">吴晓英</span></h1>
 
         <p class="headline">
-          Undergraduate (Year 2)<br/>
-          Department of Mathematics, Fudan University
+          Undergraduate (Year 2) · Department of Mathematics, Fudan University<br/>
+          Interests: ML / 3D Vision / Representation Learning
         </p>
 
-        <div class="meta-info">
-          <div class="meta-row">
-            <span class="k">Interests</span>
-            <span class="v">ML / 3D Vision / RL</span>
-          </div>
+        <div class="meta-row">
+          <span class="k">Affiliation</span>
+          <span class="v">Fudan University</span>
         </div>
 
         <div class="links">
@@ -75,95 +46,58 @@
           <a class="pill" href="assets/CV.pdf" target="_blank" rel="noreferrer">CV</a>
         </div>
       </section>
-      </aside>
+    </aside>
 
     <section class="content">
+      
       <section id="about" class="block">
         <h2>About</h2>
         <p>
-          I am a sophomore student in the Department of Mathematics at Fudan University. 
-          Currently, I am exploring the intersection of <span class="em">machine learning</span> and <span class="em">geometry</span>.
+          I am an undergraduate student (Year 2) in the Department of Mathematics at Fudan University.
+          I am interested in <span class="em">machine learning</span>, <span class="em">3D vision</span>,
+          and building clean, reproducible research code.
         </p>
         <p class="muted">
-          Looking for research opportunities in 3D computer vision and representation learning. 
-          Passionate about building clean, efficient, and reproducible code.
+          (Replace this with 2–4 sentences: who you are, what you do, what you seek.)
         </p>
       </section>
 
-      <section id="news" class="block">
-        <h2>News</h2>
-        <ul class="timeline">
-          <li><span class="date">2026-01</span> Building a personal system UI & studying ML fundamentals.</li>
-          <li><span class="date">2025-09</span> Started sophomore year at Fudan University.</li>
-        </ul>
-      </section>
-
-      <section id="projects" class="block">
-        <h2>Selected Projects</h2>
-        <div class="grid">
-          <article class="item">
-            <div class="item-head">
-              <div>
-                <div class="item-title">Dream Fusion Personal System</div>
-                <div class="item-sub">A dashboard UI inspired by generative art, built with HTML/CSS/JS.</div>
-              </div>
-              <div class="badges">
-                <span class="badge ghost">2026</span>
-              </div>
+      <section id="publications" class="block">
+        <h2>Publications</h2>
+        <div class="pub">
+          <div class="pub-left">
+            <div class="thumb">PDF</div>
+          </div>
+          <div class="pub-right">
+            <div class="pub-title">Manuscript / Project Report Title</div>
+            <div class="pub-authors">Xiaoying Wu</div>
+            <div class="pub-venue">Preprint / Report · 2026</div>
+            <div class="pub-links">
+              <a href="#" target="_blank" rel="noreferrer">PDF</a>
+              <a href="#" target="_blank" rel="noreferrer">Code</a>
+              <a href="#" target="_blank" rel="noreferrer">Project</a>
             </div>
-            <div class="item-actions">
-              <a class="btn-link" href="#" target="_blank">Code</a>
-              <a class="btn-link" href="#" target="_blank">Demo</a>
+            <div class="pub-tldr">
+              <strong>TL;DR:</strong> One sentence: what you did + why it matters.
             </div>
-          </article>
-
-          <article class="item">
-            <div class="item-head">
-              <div>
-                <div class="item-title">3D Vision Research Project</div>
-                <div class="item-sub">Exploring multiview geometry and self-supervised learning methods.</div>
-              </div>
-              <div class="badges">
-                <span class="badge">Ongoing</span>
-              </div>
-            </div>
-            <div class="item-actions">
-              <a class="btn-link" href="#">Report</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="notes" class="block">
-        <h2>Notes & Learning</h2>
-        <ul class="clean">
-          <li><span class="tag">ML</span> Transformer from scratch · <a href="#">repo</a></li>
-          <li><span class="tag">Math</span> Analysis & Linear Algebra notes · <a href="#">pdf</a></li>
-        </ul>
-      </section>
-
-      <section id="gallery" class="block">
-        <h2>Gallery</h2>
-        <p class="muted">Moments & Inspirations</p>
-        <div class="photo-grid">
-          <div class="photo-item"><img src="assets/photo1.jpg" alt="Moment 1"></div>
-          <div class="photo-item"><img src="assets/photo2.jpg" alt="Moment 2"></div>
-          <div class="photo-item"><img src="assets/photo3.jpg" alt="Moment 3"></div>
-          <div class="photo-item"><img src="assets/photo4.jpg" alt="Moment 4"></div>
+          </div>
         </div>
       </section>
 
       <section id="contact" class="block">
         <h2>Contact</h2>
         <p>
-          Email: <a href="mailto:wxy2210330146@gmail.com">wxy2210330146@gmail.com</a>
+          Email:
+          <a href="mailto:wxy2210330146@gmail.com">wxy2210330146@gmail.com</a>
+          /
+          <a href="mailto:24300180087@m.fudan.edu.cn">24300180087@m.fudan.edu.cn</a>
         </p>
       </section>
 
       <footer class="footer">
         <span>© <span id="year"></span> Xiaoying Wu</span>
         <span class="sep">·</span>
-        <span class="muted">Fudan University</span>
+        <span class="muted">Hosted on GitHub Pages</span>
       </footer>
     </section>
   </main>
